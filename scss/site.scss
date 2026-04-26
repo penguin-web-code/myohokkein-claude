@@ -88,7 +88,7 @@ header.site {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 20px 48px;
+  padding: calc(20px + env(safe-area-inset-top)) 48px 20px;
   display: flex;
   align-items: center;
   backdrop-filter: blur(16px) saturate(1.1);
@@ -99,7 +99,7 @@ header.site {
 
 header.site.scrolled {
   border-bottom-color: var(--line-soft);
-  padding: 14px 48px;
+  padding: calc(14px + env(safe-area-inset-top)) 48px 14px;
 }
 
 .brand {
@@ -370,8 +370,8 @@ footer.site .meta {
 @media (max-width: 900px) {
   .wrap { padding: 0 24px; }
 
-  header.site { padding: 16px 24px; }
-  header.site.scrolled { padding: 12px 24px; }
+  header.site { padding: calc(16px + env(safe-area-inset-top)) 24px 16px; }
+  header.site.scrolled { padding: calc(12px + env(safe-area-inset-top)) 24px 12px; }
 
   nav.main { display: none; }
   .lang { display: none; }
