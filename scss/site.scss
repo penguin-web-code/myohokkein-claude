@@ -331,6 +331,13 @@ footer.site ul {
   list-style: none;
 }
 
+footer.site .social-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 6px 0;
+}
+
 footer.site li {
   padding: 6px 0;
   font-size: 13px;
@@ -1044,13 +1051,20 @@ section {
 
 .social-link {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 18px;
   padding: 8px 0;
   flex: 1;
   min-width: 240px;
   border-bottom: 1px solid transparent;
   transition: border-color .25s, color .25s;
+}
+
+.social-link .sl-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--ink);
 }
 
 .social-link:hover {
