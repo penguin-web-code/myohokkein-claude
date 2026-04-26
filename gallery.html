@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gallery — Myohokkein, A Nichiren Temple in Kobe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css"></head>
+<body>
+
+<header class="site">
+  <a href="index.html" class="brand">
+    <span class="name">Myohokkein</span>
+    <span class="name-jp">妙法華院</span>
+  </a>
+  <nav class="main">
+    <a href="about.html">About</a>
+    <a href="grounds.html">Grounds</a>
+    <a href="gallery.html" class="on">Gallery</a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+  <a href="http://www.myohokkein.jp/" class="lang">JP</a>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <nav>
+    <a href="about.html">About<span>寺院について</span></a>
+    <a href="grounds.html">Grounds<span>境内</span></a>
+    <a href="gallery.html" class="on">Gallery<span>写真</span></a>
+    <a href="faq.html">FAQ<span>よくある質問</span></a>
+    <a href="http://www.myohokkein.jp/" class="lang-mobile">日本語サイト ↗</a>
+  </nav>
+</div><section class="page-head">
+  <div class="wrap">
+    <div class="grid">
+      <div class="eyebrow-wrap"><span class="eyebrow">Gallery</span></div>
+      <div>
+        <h1>Moments, <em>quiet</em>.</h1>
+        <p class="lead">A visual record of Myohokkein — the grounds across seasons, ceremonies through the year, and the small, passing details of daily life at the temple.</p>
+        <div class="jp-sub">写真ギャラリー</div>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="row">
+        <div class="count"><strong id="cnt">36</strong> &nbsp;photographs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="masonry" id="grid"></div>
+  </div>
+</section>
+
+<div class="lb" id="lb">
+  <div class="close">✕&nbsp; Close</div>
+  <div class="big" id="big"></div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="grid">
+      <div class="brand-blk">
+        <div class="name">Myohokkein</div>
+        <div class="name-jp">日蓮宗　護国山　妙法華院</div>
+        <p>A Nichiren-shū branch temple on the Rokko mountainside of Kobe, welcoming visitors since 1632.</p>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="grounds.html">Grounds</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>4-5-8 Eizawa-chō</li>
+          <li>Hyogo-ku, Kobe 652-0816</li>
+          <li>TEL 078-575-2608</li>
+          <li>FAX 078-577-7651</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/explore/locations/236870120051032/" target="_blank" rel="noopener">Instagram ↗</a></li>
+          <li><a href="https://www.youtube.com/channel/UCNAaxCyBY_0nOeElQppw3AQ/live?app=desktop" target="_blank" rel="noopener">YouTube ↗</a></li>
+          <li><a href="http://www.myohokkein.jp/" target="_blank" rel="noopener">Japanese site ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="meta">
+      <span>© Myohokkein · Gokokusan · Established 1632</span>
+      <span>Nichiren Shū</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Real photos available
+const realPhotos = ['photos/IMG_0611.jpg','photos/IMG_0616.jpg','photos/IMG_0622.jpg','photos/IMG_0630.jpg','photos/IMG_0644.jpg'];
+
+// 36 tiles — mix of real photos (cycled) + muted placeholders for the remainder
+const items = [
+  {cat:'ceremonies', title:'Peace Memorial Pagoda', cap:'Spring 2024', ratio:1, img:realPhotos[3]},
+  {cat:'grounds',    title:'Mountain Gate',         cap:'Morning light', ratio:3, img:realPhotos[1]},
+  {cat:'details',    title:'Koi Garden',            cap:'Inner courtyard', ratio:4, img:realPhotos[0]},
+  {cat:'seasons',    title:'Main Hall',             cap:'After rain', ratio:2, img:realPhotos[2]},
+  {cat:'grounds',    title:'Founder\u2019s Hall',   cap:'Ryōzen Bridge', ratio:5, img:realPhotos[4]},
+  {cat:'ceremonies', title:'Founding Anniversary',  cap:'April, kaizan-e', ratio:1, ph:'a'},
+  {cat:'seasons',    title:'Cherry Blossoms',       cap:'Along the slope', ratio:3, ph:'b'},
+  {cat:'details',    title:'Altar Detail',          cap:'Gilded lotus', ratio:2, ph:'c'},
+  {cat:'ceremonies', title:'Suigyō Practice',       cap:'Winter cold', ratio:6, ph:'d'},
+  {cat:'grounds',    title:'Five-Ring Gate',        cap:'Gojū-mon', ratio:4, ph:'e'},
+  {cat:'seasons',    title:'Autumn Leaves',         cap:'Moss garden', ratio:1, ph:'f'},
+  {cat:'details',    title:'Incense Smoke',         cap:'Morning service', ratio:3, ph:'g'},
+  {cat:'ceremonies', title:'O-eshiki',              cap:'October memorial', ratio:5, ph:'a'},
+  {cat:'grounds',    title:'Training Hall',         cap:'Kokū-dō · third floor', ratio:2, ph:'b'},
+  {cat:'seasons',    title:'Winter Stillness',      cap:'Snow on tile', ratio:4, ph:'c'},
+  {cat:'details',    title:'Daimandara',            cap:'Inner sanctuary', ratio:6, ph:'d'},
+  {cat:'grounds',    title:'Dove Relief',           cap:'East façade', ratio:1, ph:'e'},
+  {cat:'ceremonies', title:'Setsubun',              cap:'Bean-scattering', ratio:3, ph:'f'},
+  {cat:'seasons',    title:'Summer Rain',           cap:'On the rooftiles', ratio:2, ph:'g'},
+  {cat:'details',    title:'Bronze Bell',           cap:'Evening toll', ratio:4, ph:'a'},
+  {cat:'ceremonies', title:'Memorial Service',      cap:'Hōyō at the altar', ratio:5, ph:'b'},
+  {cat:'grounds',    title:'Peace Stone',           cap:'Heiwa Sengen-hi', ratio:1, ph:'c'},
+  {cat:'seasons',    title:'Hydrangea',             cap:'Early summer', ratio:3, ph:'d', img:realPhotos[0]},
+  {cat:'details',    title:'Calligraphy',           cap:'Hi-myō inscription', ratio:2, ph:'e'},
+  {cat:'grounds',    title:'Dome, at Dusk',         cap:'Rooftop of the office wing', ratio:4, ph:'f'},
+  {cat:'ceremonies', title:'Live Stream',           cap:'MyouTube recording', ratio:6, ph:'g'},
+  {cat:'seasons',    title:'First Light',           cap:'January dawn', ratio:1, ph:'a'},
+  {cat:'details',    title:'Tatami Room',           cap:'Fourth floor', ratio:3, ph:'b'},
+  {cat:'grounds',    title:'Mortuary Hall',         cap:'Second-floor sanctuary', ratio:2, ph:'c'},
+  {cat:'ceremonies', title:'Omizutori',             cap:'Water-drawing rite', ratio:5, ph:'d'},
+  {cat:'seasons',    title:'Moon Viewing',          cap:'Autumn equinox', ratio:4, ph:'e'},
+  {cat:'details',    title:'Gate Inscription',      cap:'Shōchū-zan', ratio:1, ph:'f'},
+  {cat:'grounds',    title:'Inner Courtyard',       cap:'Seen from the ramp', ratio:3, ph:'g', img:realPhotos[0]},
+  {cat:'ceremonies', title:'Spring Assembly',       cap:'General congregation', ratio:2, ph:'a'},
+  {cat:'details',    title:'Offering',              cap:'Fresh lotus', ratio:6, ph:'b'},
+  {cat:'seasons',    title:'Evening Bell',          cap:'Nightfall on the grounds', ratio:4, ph:'c'},
+];
+
+// Shuffle for Kinkaku-ji-like random feel (deterministic seed so layout is stable across reloads within session)
+function shuffle(a){ const r = [...a]; for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];} return r; }
+const shuffled = shuffle(items);
+
+const grid = document.getElementById('grid');
+const lb = document.getElementById('lb');
+const big = document.getElementById('big');
+
+function render(cat){
+  grid.innerHTML = '';
+  let n = 0;
+  shuffled.forEach(it=>{
+    if(cat !== 'all' && it.cat !== cat) return;
+    n++;
+    const el = document.createElement('div');
+    el.className = `tile r${it.ratio}`;
+    const bg = it.img ? `background-image:url('${it.img}')` : '';
+    el.innerHTML = `
+      <div class="img ${it.ph ? 'ph-'+it.ph : ''}" style="${bg}"></div>
+      <div class="overlay"><div class="cap"><b>${it.title}</b>${it.cap} · ${it.cat}</div></div>
+    `;
+    if(it.img){
+      el.addEventListener('click', ()=>{
+        big.style.backgroundImage = `url('${it.img}')`;
+        lb.classList.add('on');
+      });
+    }
+    grid.appendChild(el);
+  });
+  document.getElementById('cnt').textContent = String(n).padStart(2,'0');
+}
+render('all');
+
+lb.onclick = ()=> lb.classList.remove('on');
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') lb.classList.remove('on'); });
+
+const hdr = document.querySelector('header.site');
+window.addEventListener('scroll', ()=> hdr.classList.toggle('scrolled', window.scrollY > 40));
+</script>
+<script src="site.js"></script>
+</body>
+</html>
