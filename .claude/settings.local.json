@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p scss)",
+      "Bash(cp site.css scss/site.scss)"
+    ]
+  }
+}

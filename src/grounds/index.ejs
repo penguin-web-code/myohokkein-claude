@@ -1,46 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Grounds — Myohokkein, A Nichiren Temple in Kobe</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css">
-
+<%- include('/partials/head') %>
 </head>
 <body>
 
-<header class="site">
-  <a href="../" class="brand">
-    <span class="name">Myohokkein</span>
-    <span class="name-jp">妙法華院</span>
-  </a>
-  <nav class="main">
-    <a href="../about/">About</a>
-    <a href="../grounds/" class="on">Grounds</a>
-    <a href="../gallery/">Gallery</a>
-    <a href="../faq/">FAQ</a>
-  </nav>
-  <a href="http://www.myohokkein.jp/company1.html" class="lang">JP</a>
-  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-</header>
-<div class="mobile-menu" id="mobileMenu">
-  <nav>
-    <a href="../about/">About<span>寺院について</span></a>
-    <a href="../grounds/" class="on">Grounds<span>境内</span></a>
-    <a href="../gallery/">Gallery<span>写真</span></a>
-    <a href="../faq/">FAQ<span>よくある質問</span></a>
-    <a href="http://www.myohokkein.jp/" class="lang-mobile">日本語サイト ↗</a>
-  </nav>
-</div>
-
+<%- include('/partials/header') %>
 
 <!-- HERO PHOTO -->
 <section class="page-hero">
   <div class="copy">
-    <div class="crumbs"><a href="../">Home</a> &nbsp;/&nbsp; <span>Grounds</span></div>
+    <div class="crumbs"><a href="<%= rootPath %>">Home</a> &nbsp;/&nbsp; <span>Grounds</span></div>
     <h1>A walk through <em>the grounds</em>.</h1>
     <div class="jp-line">境内案内　—　GROUNDS</div>
   </div>
@@ -144,7 +114,7 @@
 
 <section class="item" id="i05">
   <div class="wrap"><div class="row">
-    <div class="media"><div class="ph pl-a" style="background-image:url('../img/IMG_0644.jpg'); background-size:cover; background-position:center;"></div><span class="label">05 · Peace Pagoda</span></div>
+    <div class="media"><div class="ph pl-a" style="background-image:url('<%= rootPath %>img/IMG_0644.jpg'); background-size:cover; background-position:center;"></div><span class="label">05 · Peace Pagoda</span></div>
     <div class="text">
       <span class="num">05 / 20</span>
       <h3>Peace Memorial Pagoda</h3>
@@ -157,7 +127,7 @@
 
 <section class="item flip" id="i06">
   <div class="wrap"><div class="row">
-    <div class="media tall"><div class="ph pl-b" style="background-image:url('../img/IMG_0630.jpg'); background-size:cover; background-position:center;"></div><span class="label">06 · Main Hall</span></div>
+    <div class="media tall"><div class="ph pl-b" style="background-image:url('<%= rootPath %>img/IMG_0630.jpg'); background-size:cover; background-position:center;"></div><span class="label">06 · Main Hall</span></div>
     <div class="text">
       <span class="num">06 / 20</span>
       <h3>The Main Hall<br><em>Jusen-dō</em></h3>
@@ -321,7 +291,7 @@
 
 <section class="item" id="i19">
   <div class="wrap"><div class="row">
-    <div class="media"><div class="ph" style="background-image:url('../img/IMG_0611.jpg'); background-size:cover; background-position:center;"></div><span class="label">19 · Koi Garden</span></div>
+    <div class="media"><div class="ph" style="background-image:url('<%= rootPath %>img/IMG_0611.jpg'); background-size:cover; background-position:center;"></div><span class="label">19 · Koi Garden</span></div>
     <div class="text">
       <span class="num">19 / 20</span>
       <h3>Koi Garden</h3>
@@ -333,7 +303,7 @@
 
 <section class="item flip" id="i20">
   <div class="wrap"><div class="row">
-    <div class="media"><div class="ph" style="background-image:url('../img/IMG_0622.jpg'); background-size:cover; background-position:center;"></div><span class="label">20 · Founder's Hall</span></div>
+    <div class="media"><div class="ph" style="background-image:url('<%= rootPath %>img/IMG_0622.jpg'); background-size:cover; background-position:center;"></div><span class="label">20 · Founder's Hall</span></div>
     <div class="text">
       <span class="num">20 / 20</span>
       <h3>Founder's Hall</h3>
@@ -347,7 +317,7 @@
 <section class="cta">
   <div class="wrap">
     <div class="cta-grid">
-      <a class="cta-card" href="../gallery/">
+      <a class="cta-card" href="<%= rootPath %>gallery/">
         <div>
           <span class="eyebrow">See more</span>
           <h3>Gallery of the grounds.</h3>
@@ -355,7 +325,7 @@
         </div>
         <span class="arrow">Open gallery</span>
       </a>
-      <a class="cta-card image" href="../#access">
+      <a class="cta-card image" href="<%= rootPath %>#access">
         <div>
           <span class="eyebrow">Plan a visit</span>
           <h3>Open daily, 7:00 — 17:00.</h3>
@@ -367,49 +337,8 @@
   </div>
 </section>
 
-<footer class="site">
-  <div class="wrap">
-    <div class="grid">
-      <div class="brand-blk">
-        <div class="name">Myohokkein</div>
-        <div class="name-jp">日蓮宗　護国山　妙法華院</div>
-        <p>A Nichiren-shū branch temple on the mountainside of Kobe, welcoming visitors since 1884.</p>
-      </div>
-      <div>
-        <h4>Visit</h4>
-        <ul>
-          <li><a href="../about/">About</a></li>
-          <li><a href="../grounds/">Grounds</a></li>
-          <li><a href="../gallery/">Gallery</a></li>
-          <li><a href="../faq/">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li>4-5-8 Eizawa-chō</li>
-          <li>Hyogo-ku, Kobe 652-0816</li>
-          <li>TEL 078-575-2608</li>
-          <li>FAX 078-577-7651</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Follow</h4>
-        <ul>
-          <li><a href="https://www.instagram.com/explore/locations/236870120051032/" target="_blank" rel="noopener">Instagram ↗</a></li>
-          <li><a href="https://www.youtube.com/channel/UCNAaxCyBY_0nOeElQppw3AQ/live?app=desktop" target="_blank" rel="noopener">YouTube ↗</a></li>
-          <li><a href="http://www.myohokkein.jp/" target="_blank" rel="noopener">Japanese site ↗</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="meta">
-      <span>© Myohokkein · Gokokusan · Since 1884</span>
-      <span>Nichiren Shū</span>
-    </div>
-  </div>
-</footer>
+<%- include('/partials/footer') %>
 
-
-<script src="../site.js"></script>
+<script src="<%= rootPath %>site.js"></script>
 </body>
 </html>
