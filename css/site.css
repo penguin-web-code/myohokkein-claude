@@ -2661,10 +2661,25 @@ section.blk {
   position: relative;
   height: 72vh;
   min-height: 560px;
-  background-image: url("../img/IMG_0616.jpg");
   background-size: cover;
   background-position: center;
   overflow: hidden;
+}
+
+.page-hero.grounds {
+  background-image: url("../img/IMG_0616.jpg");
+}
+
+.page-hero.about {
+  background-image: url("../img/IMG_0622.jpg");
+}
+
+.page-hero.faq {
+  background-image: url("../img/IMG_0630.jpg");
+}
+
+.page-hero.gallery {
+  background-image: url("../img/IMG_0644.jpg");
 }
 
 .page-hero::after {
