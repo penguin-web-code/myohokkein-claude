@@ -151,18 +151,14 @@
 <script>
 const slides = document.querySelectorAll('.hero .slide');
 const dots = document.querySelectorAll('.hero-dots button');
-const counter = document.getElementById('hc-cur');
 let cur = 0, timer = null;
 function show(i){
   cur = (i + slides.length) % slides.length;
   slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
   dots.forEach((d,k)=>d.classList.toggle('active',k===cur));
-  counter.textContent = String(cur+1).padStart(2,'0');
 }
 function startAuto(){ stopAuto(); timer = setInterval(()=>show(cur+1), 5200); }
 function stopAuto(){ if(timer){clearInterval(timer);timer=null;} }
-document.getElementById('next').onclick = ()=>{show(cur+1);startAuto();};
-document.getElementById('prev').onclick = ()=>{show(cur-1);startAuto();};
 dots.forEach(d => d.onclick = ()=>{show(+d.dataset.idx);startAuto();});
 startAuto();
 </script>
