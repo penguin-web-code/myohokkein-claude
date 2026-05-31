@@ -9,29 +9,22 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <div class="slides">
-    <div class="slide slide-1 active"></div>
-    <div class="slide slide-2"></div>
-    <div class="slide slide-3"></div>
-  </div>
+  <video class="hero-video" autoplay loop muted playsinline>
+    <source src="<%= rootPath %>video.mp4" type="video/mp4">
+  </video>
   <div class="hero-copy">
     <div class="wrap">
       <div>
-        <div class="kicker">Gokokusan Myohokkein — Nichiren-shū · Since 1632</div>
-        <h1>A quiet temple on the <em>Rokko</em> mountainside of Kobe.</h1>
+        <div class="kicker">Gokokuzan Myohokkein — Nichiren-shū · Since 1884</div>
+        <h1>A contemporary temple in Kobe,<br>rooted in tradition.</h1>
         <div class="jp-line">護国山　妙法華院　—　神戸</div>
       </div>
       <div class="hero-meta">
         <strong>Hyogo-ku, Kobe</strong><br>
-        7:00 — 17:00, open daily<br>
-        Established 1632
+        9:00 — 17:00, open daily<br>
+        Established 1884
       </div>
     </div>
-  </div>
-  <div class="hero-dots">
-    <button data-idx="0" class="active"><span class="bar"></span></button>
-    <button data-idx="1"><span class="bar"></span></button>
-    <button data-idx="2"><span class="bar"></span></button>
   </div>
 </section>
 
@@ -42,8 +35,11 @@
       <div class="eyebrow-wrap"><span class="eyebrow">I — The Temple</span></div>
       <div>
         <h2>Step inside, at <em>your</em> own pace.</h2>
-        <p class="lead">Myohokkein has stood on the slopes of Kobe for nearly four centuries — a branch temple of the Nichiren school, open to visitors, pilgrims, and the simply curious.</p>
-        <div class="jp-sub">ゆっくり、ごゆっくり。</div>
+        <p class="lead">Myohokkein is a Nichiren Buddhist temple that
+          has stood in the heart of Kobe for over 140 years.<br>
+          Unlike traditional wooden temples in Japan, it is a modern,
+          building-like temple inspired by the Hiroshima Peace Memorial Dome.</p>
+        <div class="jp-sub">どうぞ、お気軽に。</div>
       </div>
     </div>
     <div class="intro-grid">
@@ -60,6 +56,14 @@
         <div class="body">
           <h3>Grounds</h3>
           <span class="jp">境内</span>
+          <span class="arrow">Read more</span>
+        </div>
+      </a>
+      <a class="card m2" href="<%= rootPath %>memorial/">
+        <div class="media"></div>
+        <div class="body">
+          <h3>Animal Memorial Garden</h3>
+          <span class="jp">動物供養碑</span>
           <span class="arrow">Read more</span>
         </div>
       </a>
@@ -82,7 +86,8 @@
       <div class="eyebrow-wrap"><span class="eyebrow">II — Visit</span></div>
       <div>
         <h2>How to <em>find</em> us.</h2>
-        <p class="lead">Myohokkein sits fifteen minutes' walk northwest of Shin-Kobe Station, tucked into a quiet residential street at the foot of the Rokko range. All are welcome during open hours.</p>
+        <p class="lead">Myohokkein sits 1 minute walk from Shinkaichi station.
+          A 20 minutes by train from Shin-Kobe station.All are welcome during open hours.</p>
         <div class="jp-sub">アクセス</div>
       </div>
     </div>
@@ -92,7 +97,7 @@
       </div>
       <div class="access-info">
         <h3>Myohokkein</h3>
-        <div class="eyebrow" style="margin-top:8px">Gokokusan · Nichiren-shū</div>
+        <div class="eyebrow" style="margin-top:8px">Gokokuzan · Nichiren-shū</div>
         <div class="addr">
           <strong>4-5-8 Eizawa-chō, Hyogo-ku, Kobe 652-0816</strong>
           <span class="jp">〒652-0816　神戸市兵庫区永沢町4-5-8</span>
@@ -101,15 +106,17 @@
         <dl>
           <div class="dl-row">
             <dt>Train</dt>
-            <dd>15 min on foot from <strong>Shin-Kobe Stn.</strong> (Shinkansen, Seishin-Yamate Line).<br>8 min on foot from <strong>Kōsoku Nagata Stn.</strong> (Hanshin Line).</dd>
+            <dd>Myohokkein sits 1 minute walk from Shinkaichi station, A 20 minutes by train from Shin-Kobe station.
+              </dd>
           </div>
           <div class="dl-row">
             <dt>Bus</dt>
-            <dd>City Bus 7 to <strong>Minatogawa-chō</strong>, then 5 min on foot up the hill.</dd>
+            <dd>A 3 minutes walk from the Shinkaichi bus stop served by Shinki Bus.</dd>
           </div>
           <div class="dl-row">
             <dt>Car</dt>
-            <dd>10 min from Hanshin Expressway <strong>Yanagihara IC</strong>. Small parking lot on site (4 cars).</dd>
+            <dd>The temple is about 15 minutes from Shin-Kobe Station by local roads,and about 1 hour from Shin-Osaka via the Hanshin Expressway.
+            On-site parking is available.</dd>
           </div>
         </dl>
         <div class="hours">
@@ -145,19 +152,5 @@
 <%- include('/partials/footer') %>
 
 <script src="<%= rootPath %>site.js"></script>
-<script>
-const slides = document.querySelectorAll('.hero .slide');
-const dots = document.querySelectorAll('.hero-dots button');
-let cur = 0, timer = null;
-function show(i){
-  cur = (i + slides.length) % slides.length;
-  slides.forEach((s,k)=>s.classList.toggle('active',k===cur));
-  dots.forEach((d,k)=>d.classList.toggle('active',k===cur));
-}
-function startAuto(){ stopAuto(); timer = setInterval(()=>show(cur+1), 5200); }
-function stopAuto(){ if(timer){clearInterval(timer);timer=null;} }
-dots.forEach(d => d.onclick = ()=>{show(+d.dataset.idx);startAuto();});
-startAuto();
-</script>
 </body>
 </html>

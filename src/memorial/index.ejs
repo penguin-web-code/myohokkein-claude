@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('/partials/head') %>
+</head>
+<body>
+
+<%- include('/partials/header') %>
+
+<!-- HERO PHOTO -->
+<section class="page-hero memorial">
+  <div class="copy">
+    <h1>Animal memorial<br>& <em>ossuary</em> services.</h1>
+    <div class="jp-line">動物供養碑　—　Animal Memorial Garden</div>
+  </div>
+</section>
+
+<!-- MONUMENT -->
+<section class="item">
+  <div class="wrap"><div class="row">
+    <div class="media"><div class="ph pl-b" style="background-image:url('<%= rootPath %>img/grounds/20.jpg'); background-size:cover; background-position:center;"></div></div>
+    <div class="text">
+      <h3>Animal memorial and ossuary services are available.</h3>
+      <p>At Myohokkein, pets are memorialised in a shared ossuary beneath a monument engraved with a phoenix.<br>
+The ashes of pets that have already been cremated are interred together there.</p>
+      <p>More than 1,000 animals rest beneath the monument — including dogs, cats, hamsters, birds,
+lizards, turtles, pigs, and many others.</p>
+<p>
+  At the time of interment, a Buddhist memorial rite is performed together with the temple priests,
+including the chanting of sutras. The ceremony usually lasts around 20–30 minutes.
+</p>
+<p>
+  The animal memorial monument may be visited at any time, day or night.
+Please be assured that the site is cared for daily,
+with priests offering prayers and maintaining the grounds each morning.
+</p>
+    </div>
+  </div></div>
+</section>
+
+<!-- HOW TO APPLY -->
+<section class="item" id="apply">
+  <div class="wrap"><div class="row">
+    <div class="media"><div class="ph pl-b" style="background-image:url('<%= rootPath %>img/grounds/19.png'); background-size:cover; background-position:center;"></div></div>
+    <div class="text">
+      <h3>How to Apply for<br><em>Animal Memorial Services</em></h3>
+      <p>Please message us on Instagram with your name, your pet’s name, your pet’s type (dog, cat, etc.),
+and a note that you would like to arrange interment.</p>
+      <p>We will reply in English to discuss the date and details with you.</p>
+      <p>Interment costs ¥33,000, plus an additional ¥7,000–¥20,000 depending on the size of the urn.</p>
+    </div>
+  </div></div>
+</section>
+
+<!-- YOUTUBE -->
+<section class="intro" style="padding-top:0">
+  <div class="wrap">
+    <div class="grounds-intro">
+      <div class="eyebrow-wrap"><span class="eyebrow">Video</span></div>
+      <div>
+        <h2>See the service<br>on <em>YouTube</em>.</h2>
+        <p>On YouTube, we share videos showing animal memorial services.</p>
+        <div style="margin-top:32px">
+          <div class="video-embed">
+            <iframe src="https://www.youtube.com/embed/EHqGAvW4iM0" title="Animal memorial service at Myohokkein" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-grid">
+      <a class="cta-card" href="<%= rootPath %>about/">
+        <div>
+          <span class="eyebrow">Learn more</span>
+          <h3>About the temple.</h3>
+          <p>Learn about Myohokkein's history and the Nichiren Buddhist tradition.</p>
+        </div>
+        <span class="arrow">About</span>
+      </a>
+      <a class="cta-card image" href="<%= rootPath %>#access">
+        <div>
+          <span class="eyebrow">Plan a visit</span>
+          <h3>Open daily, 9:00 — 17:00.</h3>
+          <p>1 minute walk from Shinkaichi Station.</p>
+        </div>
+        <span class="arrow">Access & hours</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<%- include('/partials/footer') %>
+
+<script src="<%= rootPath %>site.js"></script>
+</body>
+</html>

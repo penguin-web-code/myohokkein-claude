@@ -12,7 +12,7 @@ const pages = [
       activePage: 'home',
       langUrl: 'http://www.myohokkein.jp/',
       footerBlurb: 'A Nichiren-shū branch temple on the Rokko mountainside of Kobe, welcoming visitors since 1632.',
-      footerCopyright: '© Myohokkein · Gokokusan · Established 1632',
+      footerCopyright: '© Myohokkein · Gokokuzan · Established 1884',
     },
   },
   {
@@ -61,6 +61,18 @@ const pages = [
       langUrl: 'http://www.myohokkein.jp/company1.html',
       footerBlurb: 'A Nichiren-shū branch temple on the mountainside of Kobe, welcoming visitors since 1884.',
       footerCopyright: '© Myohokkein · Gokokusan · Since 1884',
+    },
+  },
+  {
+    src: 'src/memorial/index.ejs',
+    out: 'memorial/index.html',
+    data: {
+      rootPath: '../',
+      title: 'Animal Memorial & Ossuary — Myohokkein, A Nichiren Temple in Kobe',
+      activePage: 'memorial',
+      langUrl: 'http://www.myohokkein.jp/',
+      footerBlurb: 'A Nichiren-shū branch temple in Kobe, offering animal memorial and ossuary services.',
+      footerCopyright: '© Myohokkein · Gokokuzan · Since 1884',
     },
   },
 ];
