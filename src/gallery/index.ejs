@@ -16,11 +16,6 @@
 
 <section class="gallery">
   <div class="wrap">
-    <div class="filters">
-      <div class="row">
-        <div class="count"><strong id="cnt">36</strong> &nbsp;photographs</div>
-      </div>
-    </div>
     <div class="masonry" id="grid"></div>
   </div>
 </section>
@@ -33,45 +28,39 @@
 <%- include('/partials/footer') %>
 
 <script>
-const realPhotos = ['<%= rootPath %>img/IMG_0611.jpg','<%= rootPath %>img/IMG_0616.jpg','<%= rootPath %>img/IMG_0622.jpg','<%= rootPath %>img/IMG_0630.jpg','<%= rootPath %>img/IMG_0644.jpg'];
+const g = '<%= rootPath %>img/gallery/';
 
 const items = [
-  {cat:'ceremonies', title:'Peace Memorial Pagoda', cap:'Spring 2024', ratio:1, img:realPhotos[3]},
-  {cat:'grounds',    title:'Mountain Gate',         cap:'Morning light', ratio:3, img:realPhotos[1]},
-  {cat:'details',    title:'Koi Garden',            cap:'Inner courtyard', ratio:4, img:realPhotos[0]},
-  {cat:'seasons',    title:'Main Hall',             cap:'After rain', ratio:2, img:realPhotos[2]},
-  {cat:'grounds',    title:'Founder’s Hall',   cap:'Ryōzen Bridge', ratio:5, img:realPhotos[4]},
-  {cat:'ceremonies', title:'Founding Anniversary',  cap:'April, kaizan-e', ratio:1, ph:'a'},
-  {cat:'seasons',    title:'Cherry Blossoms',       cap:'Along the slope', ratio:3, ph:'b'},
-  {cat:'details',    title:'Altar Detail',          cap:'Gilded lotus', ratio:2, ph:'c'},
-  {cat:'ceremonies', title:'Suigyō Practice',       cap:'Winter cold', ratio:6, ph:'d'},
-  {cat:'grounds',    title:'Five-Ring Gate',        cap:'Gojū-mon', ratio:4, ph:'e'},
-  {cat:'seasons',    title:'Autumn Leaves',         cap:'Moss garden', ratio:1, ph:'f'},
-  {cat:'details',    title:'Incense Smoke',         cap:'Morning service', ratio:3, ph:'g'},
-  {cat:'ceremonies', title:'O-eshiki',              cap:'October memorial', ratio:5, ph:'a'},
-  {cat:'grounds',    title:'Training Hall',         cap:'Kokū-dō · third floor', ratio:2, ph:'b'},
-  {cat:'seasons',    title:'Winter Stillness',      cap:'Snow on tile', ratio:4, ph:'c'},
-  {cat:'details',    title:'Daimandara',            cap:'Inner sanctuary', ratio:6, ph:'d'},
-  {cat:'grounds',    title:'Dove Relief',           cap:'East façade', ratio:1, ph:'e'},
-  {cat:'ceremonies', title:'Setsubun',              cap:'Bean-scattering', ratio:3, ph:'f'},
-  {cat:'seasons',    title:'Summer Rain',           cap:'On the rooftiles', ratio:2, ph:'g'},
-  {cat:'details',    title:'Bronze Bell',           cap:'Evening toll', ratio:4, ph:'a'},
-  {cat:'ceremonies', title:'Memorial Service',      cap:'Hōyō at the altar', ratio:5, ph:'b'},
-  {cat:'grounds',    title:'Peace Stone',           cap:'Heiwa Sengen-hi', ratio:1, ph:'c'},
-  {cat:'seasons',    title:'Hydrangea',             cap:'Early summer', ratio:3, ph:'d', img:realPhotos[0]},
-  {cat:'details',    title:'Calligraphy',           cap:'Hi-myō inscription', ratio:2, ph:'e'},
-  {cat:'grounds',    title:'Dome, at Dusk',         cap:'Rooftop of the office wing', ratio:4, ph:'f'},
-  {cat:'ceremonies', title:'Live Stream',           cap:'MyouTube recording', ratio:6, ph:'g'},
-  {cat:'seasons',    title:'First Light',           cap:'January dawn', ratio:1, ph:'a'},
-  {cat:'details',    title:'Tatami Room',           cap:'Fourth floor', ratio:3, ph:'b'},
-  {cat:'grounds',    title:'Mortuary Hall',         cap:'Second-floor sanctuary', ratio:2, ph:'c'},
-  {cat:'ceremonies', title:'Omizutori',             cap:'Water-drawing rite', ratio:5, ph:'d'},
-  {cat:'seasons',    title:'Moon Viewing',          cap:'Autumn equinox', ratio:4, ph:'e'},
-  {cat:'details',    title:'Gate Inscription',      cap:'Shōchū-zan', ratio:1, ph:'f'},
-  {cat:'grounds',    title:'Inner Courtyard',       cap:'Seen from the ramp', ratio:3, ph:'g', img:realPhotos[0]},
-  {cat:'ceremonies', title:'Spring Assembly',       cap:'General congregation', ratio:2, ph:'a'},
-  {cat:'details',    title:'Offering',              cap:'Fresh lotus', ratio:6, ph:'b'},
-  {cat:'seasons',    title:'Evening Bell',          cap:'Nightfall on the grounds', ratio:4, ph:'c'},
+  {cat:'ceremonies', title:'Gokitō',               ratio:1, img:g+'御祈祷1.JPG'},
+  {cat:'grounds',    title:'Mountain Gate',         ratio:3, img:g+'春の正門.JPG'},
+  {cat:'details',    title:'Inner Courtyard Above', ratio:4, img:g+'中庭上から.jpg'},
+  {cat:'grounds',    title:'Stone Stairway',        ratio:5, img:g+'階段.jpg'},
+  {cat:'ceremonies', title:'Hanamatsuri',           ratio:1, img:g+'花まつり白象.JPG'},
+  {cat:'details',    title:'Lantern',               ratio:2, img:g+'提灯.jpg'},
+  {cat:'ceremonies', title:'Suigyō Practice',       ratio:6, img:g+'水行.JPG'},
+  {cat:'grounds',    title:'Five-Story Gate',       ratio:4, img:g+'五重の門.jpg'},
+  {cat:'seasons',    title:'Shishi-odoshi',         ratio:1, img:g+'鹿威し.jpg'},
+  {cat:'details',    title:'Taiko Drum II',         ratio:3, img:g+'太鼓 (2).JPG'},
+  {cat:'ceremonies', title:'Segaki',                ratio:5, img:g+'せがき.JPG'},
+  {cat:'grounds',    title:'Training Hall',         ratio:2, img:g+'道場斜め.jpg'},
+  {cat:'seasons',    title:'Shishi-odoshi in Snow', ratio:4, img:g+'鹿威し雪.jpg'},
+  {cat:'details',    title:'Prayer Hall Door',      ratio:6, img:g+'祈祷所扉横.jpg'},
+  {cat:'grounds',    title:'Temple Office Sign',    ratio:1, img:g+'寺務所看板.jpg'},
+  {cat:'ceremonies', title:'Setsubun',              ratio:3, img:g+'豆まき.JPG'},
+  {cat:'details',    title:'Taiko Drum',            ratio:4, img:g+'太鼓.jpg'},
+  {cat:'ceremonies', title:'Gokitō II',             ratio:5, img:g+'御祈祷2.JPG'},
+  {cat:'grounds',    title:'Peace Stone',           ratio:1, img:g+'看板石.jpg'},
+  {cat:'details',    title:'Omikuji',               ratio:2, img:g+'御籤.jpg'},
+  {cat:'grounds',    title:'Dome, at Dusk',         ratio:4, img:g+'金丸.JPG'},
+  {cat:'ceremonies', title:'Brass Band',            ratio:6, img:g+'吹奏楽1.JPG'},
+  {cat:'seasons',    title:'First Light',           ratio:1, img:g+'初日の出.jpg'},
+  {cat:'grounds',    title:'Ossuary Altar',         ratio:2, img:g+'納骨堂ご本尊.jpg'},
+  {cat:'ceremonies', title:'Suigyō — Gate',         ratio:5, img:g+'水行肝門.jpg'},
+  {cat:'seasons',    title:'New Year Dawn',         ratio:4, img:g+'初日の出　トリ.JPG'},
+  {cat:'details',    title:'Sotoba',                ratio:1, img:g+'塔婆.jpg'},
+  {cat:'grounds',    title:'Inner Courtyard',       ratio:3, img:g+'中庭.jpg'},
+  {cat:'ceremonies', title:'Ordination',            ratio:2, img:g+'得度式.JPG'},
+  {cat:'ceremonies', title:'Brass Band II',         ratio:4, img:g+'吹奏楽2.JPG'},
 ];
 
 function shuffle(a){ const r = [...a]; for(let i=r.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[r[i],r[j]]=[r[j],r[i]];} return r; }
@@ -92,7 +81,7 @@ function render(cat){
     const bg = it.img ? `background-image:url('${it.img}')` : '';
     el.innerHTML = `
       <div class="img ${it.ph ? 'ph-'+it.ph : ''}" style="${bg}"></div>
-      <div class="overlay"><div class="cap"><b>${it.title}</b>${it.cap} · ${it.cat}</div></div>
+      <div class="overlay"><div class="cap"><b>${it.title}</b></div></div>
     `;
     if(it.img){
       el.addEventListener('click', ()=>{
