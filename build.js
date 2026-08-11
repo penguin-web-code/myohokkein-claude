@@ -24,7 +24,7 @@ const pages = [
       activePage: 'about',
       langUrl: 'http://www.myohokkein.jp/concept1.html',
       footerBlurb: 'A Nichiren-shū branch temple on the mountainside of Kobe, welcoming visitors since 1884.',
-      footerCopyright: '© Myohokkein · Gokokusan · Since 1884',
+      footerCopyright: '© Myohokkein · Gokokuzan · Since 1884',
     },
   },
   {
@@ -36,7 +36,7 @@ const pages = [
       activePage: 'faq',
       langUrl: 'http://www.myohokkein.jp/',
       footerBlurb: 'A Nichiren-shū branch temple on the Rokko mountainside of Kobe, welcoming visitors since 1632.',
-      footerCopyright: '© Myohokkein · Gokokusan · Established 1632',
+      footerCopyright: '© Myohokkein · Gokokuzan · Established 1884',
     },
   },
   {
@@ -48,7 +48,7 @@ const pages = [
       activePage: 'gallery',
       langUrl: 'http://www.myohokkein.jp/',
       footerBlurb: 'A Nichiren-shū branch temple on the Rokko mountainside of Kobe, welcoming visitors since 1632.',
-      footerCopyright: '© Myohokkein · Gokokusan · Established 1632',
+      footerCopyright: '© Myohokkein · Gokokuzan · Established 1884',
     },
   },
   {
@@ -60,7 +60,7 @@ const pages = [
       activePage: 'grounds',
       langUrl: 'http://www.myohokkein.jp/company1.html',
       footerBlurb: 'A Nichiren-shū branch temple on the mountainside of Kobe, welcoming visitors since 1884.',
-      footerCopyright: '© Myohokkein · Gokokusan · Since 1884',
+      footerCopyright: '© Myohokkein · Gokokuzan · Since 1884',
     },
   },
   {

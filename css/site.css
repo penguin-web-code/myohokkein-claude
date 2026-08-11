@@ -640,7 +640,7 @@ section {
 }
 
 .card.m4 {
-  background: linear-gradient(180deg, rgba(20, 16, 10, 0.1) 0%, rgba(20, 16, 10, 0.35) 55%, rgba(20, 16, 10, 0.82) 100%), url("../img/IMG_0644.jpg") center/cover no-repeat;
+  background: linear-gradient(180deg, rgba(20, 16, 10, 0.1) 0%, rgba(20, 16, 10, 0.35) 55%, rgba(20, 16, 10, 0.82) 100%), url("../img/grounds/16.jpg") center/cover no-repeat;
 }
 
 .card.m2 {
@@ -3025,6 +3025,11 @@ section.blk {
 
 .cta-card.about-social::before {
   background-image: url("../img/grounds/18.JPG");
+  opacity: 0.75;
+}
+
+.cta-card.grounds-gallery::before {
+  background-image: url("../img/grounds/16.jpg");
   opacity: 0.75;
 }
 
