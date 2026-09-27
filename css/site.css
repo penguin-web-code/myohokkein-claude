@@ -10,7 +10,9 @@
   --line-soft: #e4dcc9;
   --font-display: 'Cormorant Garamond', 'Noto Serif JP', serif;
   --font-body: 'Inter', 'Noto Serif JP', sans-serif;
-  --font-jp: 'Noto Serif JP', serif;
+  /* Noto Serif JP（Google Fonts配信版）は ō ū などのマクロンが右にずれて描画される。
+     head で マクロン付き文字だけ に絞った Source Serif 4 を読み込み、先頭に置いて差し替える */
+  --font-jp: 'Source Serif 4', 'Noto Serif JP', serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
@@ -222,16 +224,20 @@ nav.main a.on::after {
 }
 
 /* ===== mobile menu overlay ===== */
+/* 高さは large viewport 基準（iOS のアドレスバーの裏まで塗る）。
+   項目がバーに隠れないよう、下側の padding で逃がす */
 .mobile-menu {
   position: fixed;
   inset: 0;
+  height: 100vh;
+  height: 100lvh;
   z-index: 99;
   background: var(--bg);
   display: none;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 80px 32px;
+  padding: calc(80px + env(safe-area-inset-top)) 32px calc(72px + env(safe-area-inset-bottom));
+  overflow-y: auto;
 }
 
 .mobile-menu.on {
@@ -245,15 +251,16 @@ nav.main a.on::after {
   text-align: center;
   width: 100%;
   max-width: 320px;
+  margin: auto 0;
 }
 
 .mobile-menu nav a {
   font-family: var(--font-display);
-  font-size: 42px;
+  font-size: 34px;
   font-weight: 300;
   letter-spacing: -0.01em;
   color: var(--ink);
-  padding: 16px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line-soft);
   position: relative;
 }
@@ -334,9 +341,21 @@ footer.site ul {
 
 footer.site .social-icons {
   display: flex;
-  gap: 16px;
+  gap: 8px;
   align-items: center;
-  padding: 6px 0;
+}
+
+/* タップ領域は 44px 角。アイコンは左寄せにして、左の列の文字と頭をそろえる */
+footer.site .social-icons a {
+  display: inline-flex;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+}
+
+footer.site .social-icons svg {
+  width: 22px;
+  height: 22px;
 }
 
 footer.site li {
@@ -1172,7 +1191,7 @@ section {
 }
 
 .faq-list .q-body {
-  padding: 0 8px 36px 104px;
+  padding: 36px 8px 36px 104px;
   max-width: 72ch;
 }
 
@@ -1198,7 +1217,7 @@ section {
     font-size: 17px;
   }
   .faq-list .q-body {
-    padding: 0 4px 28px 62px;
+    padding: 28px 4px 28px 62px;
   }
 }
 /* =========== about.html =========== */
@@ -1466,7 +1485,8 @@ section.blk {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  /* 左下の塔婆に書かれた名前が入らないよう、右寄せでトリミング */
+  object-position: 70% top;
 }
 
 .priest .photo .placeholder {
@@ -2047,7 +2067,7 @@ section.blk {
 }
 
 .faq-list .q-body {
-  padding: 0 8px 40px 104px;
+  padding: 40px 8px 40px 104px;
   max-width: 72ch;
 }
 
@@ -2157,6 +2177,13 @@ section.blk {
   color: var(--ink);
   font-weight: 500;
   font-feature-settings: "tnum";
+  min-width: 0;
+  text-align: right;
+  overflow-wrap: anywhere; /* 狭い画面で Instagram のアカウント名がはみ出さないように */
+}
+
+.contact-strip .info .row span {
+  flex-shrink: 0;
 }
 
 .contact-strip .info .row {
@@ -2196,7 +2223,7 @@ section.blk {
     font-size: 18px;
   }
   .faq-list .q-body {
-    padding: 0 4px 30px 62px;
+    padding: 30px 4px 30px 62px;
   }
   .contact-strip {
     grid-template-columns: 1fr;
@@ -2548,31 +2575,38 @@ section.blk {
 }
 
 .page-hero.faq {
-  background-image: url("../img/IMG_0630.jpg");
+  background-image: url("../img/grounds/01.jpg");
 }
 
 .page-hero.gallery {
-  background-image: url("../img/IMG_0644.jpg");
+  background-image: url("../img/gallery/金丸.JPG");
 }
 
 .page-hero.memorial {
-  background-image: url("../img/IMG_0630.jpg");
+  background-image: url("../img/grounds/06.JPG");
 }
 
-.video-embed {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  border-radius: 4px;
-  overflow: hidden;
+.media.video {
+  aspect-ratio: 16/9;
 }
 
-.video-embed iframe {
+.media.video iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: none;
+}
+
+/* 動物供養碑だけ24時間参拝できることを目立たせる */
+.text p.open-24h {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
 }
 
 .page-hero::after {
@@ -2688,13 +2722,20 @@ section.blk {
 
 .toc h4 {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.3em;
+  font-size: 20px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--mute);
   font-weight: 400;
-  margin-bottom: 28px;
   padding-top: 28px;
+}
+
+.toc .jp-sub {
+  font-family: var(--font-jp);
+  font-size: 13px;
+  color: var(--mute);
+  letter-spacing: 0.2em;
+  margin: 12px 0 28px;
 }
 
 .toc ol {
@@ -2706,6 +2747,7 @@ section.blk {
 }
 
 .toc li {
+  position: relative;
   counter-increment: tc;
   font-size: 14px;
   border-top: 1px solid var(--line-soft);
@@ -2725,6 +2767,13 @@ section.blk {
 .toc li a {
   color: var(--ink-soft);
   transition: color 0.2s;
+}
+
+/* 番号・和名も含めて li 全体をタップ範囲にする */
+.toc li a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 .toc li:hover a {
@@ -2955,6 +3004,23 @@ section.blk {
   border-left: 1px solid var(--line);
   max-width: 28ch;
   font-style: italic;
+}
+
+.text .food-thumbs {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 420px;
+  margin: 24px 0 16px;
+}
+
+.text .food-thumbs img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .text dl.mini {

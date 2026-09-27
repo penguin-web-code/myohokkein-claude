@@ -27,18 +27,18 @@ A gently rising ramp winds around the Koi Garden up to the third floor,
 and two domes crown the rooftop.<br>
 The main hall and temple office are located on the second floor.
 We warmly invite you to visit and explore the temple grounds below.</p>
-        <div class="jp-sub">境内の15の見どころ</div>
       </div>
     </div>
 
     <div class="toc">
       <h4>Fifteen places, in order</h4>
+      <div class="jp-sub">境内の15の見どころ</div>
       <ol>
         <li><a href="#i01">Main Gate</a><span class="jpsm">山門（正門）</span></li>
         <li><a href="#i02">Main Hall (Jusen-dō)</a><span class="jpsm">本堂（鷲山堂）</span></li>
         <li><a href="#i03">Buddhist Practice Hall (Kokū-dō)</a><span class="jpsm">道場（虚空堂）</span></li>
         <li><a href="#i04">Prayer Hall</a><span class="jpsm">祈祷所</span></li>
-        <li><a href="#i05">Memorial Hall</a><span class="jpsm">記念堂</span></li>
+        <li><a href="#i05">Grave Hall</a><span class="jpsm">納骨堂</span></li>
         <li><a href="#i06">Animal Memorial Garden</a><span class="jpsm">動物供養碑</span></li>
         <li><a href="#i07">Water Purification Place</a><span class="jpsm">水行場</span></li>
         <li><a href="#i08">Temple Office</a><span class="jpsm">事務所</span></li>
@@ -119,11 +119,11 @@ the prayer hall is a quiet and solemn space where various deities are enshrined.
 
 <section class="item" id="i05">
   <div class="wrap"><div class="row">
-    <div class="media"><div class="ph pl-c" style="background-image:url('<%= rootPath %>img/grounds/05.jpg'); background-size:cover; background-position:center;"></div><span class="label">05 · Memorial Hall</span></div>
+    <div class="media"><div class="ph pl-c" style="background-image:url('<%= rootPath %>img/grounds/05.jpg'); background-size:cover; background-position:center;"></div><span class="label">05 · Grave Hall</span></div>
     <div class="text">
       <span class="num">05 / 15</span>
-      <h3>Memorial Hall</h3>
-      <span class="jp-name">記念堂 — Kinen-dō</span>
+      <h3>Grave Hall</h3>
+      <span class="jp-name">納骨堂 — Nōkotu-dō</span>
       <p>In Japan, it is customary for the deceased to be cremated and their ashes enshrined for ongoing ancestral remembrance and prayer.<br>
 In recent years, many families have begun choosing modern indoor memorial spaces like these instead of traditional stone graves,
 as they are easier to maintain and care for in urban life.</p>
@@ -180,11 +180,17 @@ staff may sometimes be able to assist in simple English. All visitors are warmly
     <div class="media"><div class="ph pl-d" style="background-image:url('<%= rootPath %>img/grounds/09.jpg'); background-size:cover; background-position:center;"></div><span class="label">09 · Restaurant "Sekai"</span></div>
     <div class="text">
       <span class="num">09 / 15</span>
-      <h3>Oshokuzidokoro "Sekai"</h3>
-      <span class="jp-name">御食事処 "世海"</span>
+      <h3>Restaurant "Sekai"</h3>
+      <span class="jp-name">御食事処 "世海" — Osyokujidokoro "Sekai"</span>
       <p>Meals are prepared by a priest with a background in professional cooking,
 and are served after memorial gatherings in a traditional Japanese-style room.<br>
 Fully reservation-based, each menu can be arranged according to guests’ requests.</p>
+      <ul class="food-thumbs">
+        <li><img src="<%= rootPath %>img/restaurant/01.jpg" width="1477" height="1107" alt="A whole fish served as sashimi on a blue platter" loading="lazy"></li>
+        <li><img src="<%= rootPath %>img/restaurant/02.jpg" width="1108" height="1477" alt="Seasonal appetisers with squid, prawn and lotus root" loading="lazy"></li>
+        <li><img src="<%= rootPath %>img/restaurant/03.jpg" width="1108" height="1477" alt="Beef in a green pea soup" loading="lazy"></li>
+      </ul>
+      <a href="https://www.instagram.com/osyokujidokorosekai/" target="_blank" rel="noopener" class="arrow">Instagram @osyokujidokorosekai ↗</a>
     </div>
   </div></div>
 </section>
@@ -284,7 +290,7 @@ and the Asia–Pacific War. Memorial prayers for the dead are offered here every
         <div>
           <span class="eyebrow">Plan a visit</span>
           <h3>Open daily, 9:00 — 17:00.</h3>
-          <p>Myohokkein sits 1 minute walk from Shinkaichi Station,
+          <p>Myohokkein sits 1 minute walk from Shinkaichi station.
             A 20 minutes by train from Shin-Kobe station.</p>
         </div>
         <span class="arrow">Access & hours</span>
@@ -295,6 +301,6 @@ and the Asia–Pacific War. Memorial prayers for the dead are offered here every
 
 <%- include('/partials/footer') %>
 
-<script src="<%= rootPath %>site.js"></script>
+<script src="<%= rootPath %>site.js?v=<%= assetVersion %>"></script>
 </body>
 </html>
