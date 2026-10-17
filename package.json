@@ -5,6 +5,7 @@
     "build:css": "sass scss/site.scss:css/site.css",
     "build:html": "node build.js",
     "build": "npm run build:css && npm run build:html",
+    "dist": "npm run build && node dist.js",
     "watch:css": "sass --watch scss/site.scss:css/site.css",
     "watch:html": "nodemon --watch src --ext ejs --exec \"node build.js\"",
     "watch": "concurrently \"npm run watch:css\" \"npm run watch:html\""

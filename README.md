@@ -46,6 +46,15 @@ npm run watch:html   # EJSのみwatch（src/変更時に自動ビルド）
 npm run build
 ```
 
+テストアップ・納品用ファイルの出力：
+
+```bash
+npm run dist
+```
+
+ビルド後、サーバーに置くファイル（HTML・`css/site.css`・`site.js`・`img/`・`video.mp4`）だけを `dist/` にコピーする。
+`dist/` は毎回作り直され、git管理外。アップロードは `dist/` の中身をそのまま公開ディレクトリへ置く。
+
 ## ページ一覧
 
 | URL | ソース |

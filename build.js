@@ -84,6 +84,10 @@ const root = path.resolve('src');
 const mtime = (f) => { try { return fs.statSync(f).mtimeMs; } catch { return 0; } };
 const assetVersion = String(Math.floor(Math.max(mtime('css/site.css'), mtime('site.js')) / 1000));
 
+// dist.js が出力ページ一覧を参照するので、require されたときはビルドしない
+module.exports = { pages };
+if (require.main !== module) return;
+
 pages.forEach(({ src, out, data }) => {
   ejs.renderFile(src, { ...data, assetVersion }, { root }, (err, html) => {
     if (err) { console.error(`Error in ${src}:`, err.message); process.exit(1); }
