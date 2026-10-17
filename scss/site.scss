@@ -2320,7 +2320,6 @@ section.blk {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 55%, rgba(20,16,10,0.7));
-  opacity: 0;
   transition: opacity .3s;
   display: flex;
   align-items: end;
@@ -2328,8 +2327,15 @@ section.blk {
   color: #f5efe2;
 }
 
-.tile:hover .overlay {
-  opacity: 1;
+/* ホバーできる端末だけ説明文を隠してホバーで出す。タッチ端末では常時表示 */
+@media (hover: hover) {
+  .tile .overlay {
+    opacity: 0;
+  }
+
+  .tile:hover .overlay {
+    opacity: 1;
+  }
 }
 
 .tile .cap {
@@ -2426,7 +2432,8 @@ section.blk {
 
 .page-hero.grounds  { background-image: url('../img/IMG_0616.jpg'); }
 .page-hero.about    { background-image: url('../img/IMG_0622.jpg'); }
-.page-hero.faq      { background-image: url('../img/grounds/01.jpg'); }
+/* 元写真（grounds/01.jpg）が約1.45°傾いているため、水平補正して周囲をトリミングした別画像を使う */
+.page-hero.faq      { background-image: url('../img/faq-hero.jpg'); }
 .page-hero.gallery  { background-image: url('../img/gallery/金丸.JPG'); }
 .page-hero.memorial { background-image: url('../img/grounds/06.JPG'); }
 
@@ -2597,6 +2604,11 @@ section.blk {
   border-top: 1px solid var(--line-soft);
   padding: 14px 0 10px;
   transition: color .2s;
+}
+
+/* 各列の最後の項目にだけ下罫線を引き、一覧の終わりを閉じる */
+.toc li:nth-last-child(-n+4) {
+  border-bottom: 1px solid var(--line-soft);
 }
 
 .toc li::before {
@@ -2997,6 +3009,8 @@ section.blk {
   .page-hero .copy { padding: 0 28px 60px; }
   .grounds-intro { grid-template-columns: 1fr; gap: 28px; }
   .toc ol { grid-template-columns: 1fr 1fr; }
+  .toc li:nth-last-child(-n+4) { border-bottom: none; }
+  .toc li:nth-last-child(-n+2) { border-bottom: 1px solid var(--line-soft); }
   .item .row, .item:nth-child(even) .row { grid-template-columns: 1fr; gap: 32px; }
   .item:nth-child(even) .media { order: 1; }
   .item:nth-child(even) .text  { order: 2; }

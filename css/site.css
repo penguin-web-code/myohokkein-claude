@@ -2434,7 +2434,6 @@ section.blk {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 55%, rgba(20, 16, 10, 0.7));
-  opacity: 0;
   transition: opacity 0.3s;
   display: flex;
   align-items: end;
@@ -2442,10 +2441,15 @@ section.blk {
   color: #f5efe2;
 }
 
-.tile:hover .overlay {
-  opacity: 1;
+/* ホバーできる端末だけ説明文を隠してホバーで出す。タッチ端末では常時表示 */
+@media (hover: hover) {
+  .tile .overlay {
+    opacity: 0;
+  }
+  .tile:hover .overlay {
+    opacity: 1;
+  }
 }
-
 .tile .cap {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -2574,8 +2578,9 @@ section.blk {
   background-image: url("../img/IMG_0622.jpg");
 }
 
+/* 元写真（grounds/01.jpg）が約1.45°傾いているため、水平補正して周囲をトリミングした別画像を使う */
 .page-hero.faq {
-  background-image: url("../img/grounds/01.jpg");
+  background-image: url("../img/faq-hero.jpg");
 }
 
 .page-hero.gallery {
@@ -2753,6 +2758,11 @@ section.blk {
   border-top: 1px solid var(--line-soft);
   padding: 14px 0 10px;
   transition: color 0.2s;
+}
+
+/* 各列の最後の項目にだけ下罫線を引き、一覧の終わりを閉じる */
+.toc li:nth-last-child(-n+4) {
+  border-bottom: 1px solid var(--line-soft);
 }
 
 .toc li::before {
@@ -3168,6 +3178,12 @@ section.blk {
   }
   .toc ol {
     grid-template-columns: 1fr 1fr;
+  }
+  .toc li:nth-last-child(-n+4) {
+    border-bottom: none;
+  }
+  .toc li:nth-last-child(-n+2) {
+    border-bottom: 1px solid var(--line-soft);
   }
   .item .row, .item:nth-child(even) .row {
     grid-template-columns: 1fr;
