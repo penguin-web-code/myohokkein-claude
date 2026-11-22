@@ -244,6 +244,18 @@ nav.main a.on::after {
   display: flex;
 }
 
+/* iOS Safari はステータスバー下・下部ツールバー下まで fixed 要素を伸ばさず、
+   そこから背面のページが透けて見える。メニューを開いている間は背面の中身を隠し、
+   その帯に body の背景色だけが出るようにする */
+html.menu-open body {
+  overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  html.menu-open body > :not(header.site):not(.mobile-menu) {
+    visibility: hidden;
+  }
+}
 .mobile-menu nav {
   display: flex;
   flex-direction: column;

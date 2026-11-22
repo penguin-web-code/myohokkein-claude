@@ -12,13 +12,13 @@
     burger.addEventListener('click', () => {
       const open = burger.classList.toggle('on');
       menu.classList.toggle('on', open);
-      document.body.style.overflow = open ? 'hidden' : '';
+      document.documentElement.classList.toggle('menu-open', open);
     });
     menu.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         burger.classList.remove('on');
         menu.classList.remove('on');
-        document.body.style.overflow = '';
+        document.documentElement.classList.remove('menu-open');
       });
     });
   }
