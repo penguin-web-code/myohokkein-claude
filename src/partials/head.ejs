@@ -1,5 +1,18 @@
 <meta charset="UTF-8">
 <title><%= title %></title>
+<meta name="description" content="<%= description %>">
+<link rel="canonical" href="<%= siteUrl + path %>">
+<meta property="og:type" content="<%= path === '' ? 'website' : 'article' %>">
+<meta property="og:site_name" content="Myohokkein">
+<meta property="og:title" content="<%= title %>">
+<meta property="og:description" content="<%= description %>">
+<meta property="og:url" content="<%= siteUrl + path %>">
+<meta property="og:image" content="<%= siteUrl %>img/ogp.jpg"><!-- 全ページ共通。トップの動画の1コマ -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<!-- favicon: 支給なしのため未設定 -->
 <meta name="theme-color" content="#faf7f1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
