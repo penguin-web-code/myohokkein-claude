@@ -1362,9 +1362,16 @@ section.blk {
 
 .school-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 72px;
+  grid-template-columns: 280px minmax(0, 1fr);  /* .sec-head と同じ列構成 */
+  gap: 80px;
   align-items: start;
+}
+
+/* 詳細情報を上の本文（.sec-head .lead）の左端・幅に揃える */
+.school-body {
+  grid-column: 2;
+  font-size: 17px;   /* .lead と同じ基準で ch を計算させる（子要素は各自px指定） */
+  max-width: 52ch;   /* .sec-head .lead の max-width と同値 */
 }
 
 .school-facts dl {
@@ -1856,6 +1863,7 @@ section.blk {
   .page-head .sub { grid-template-columns: 1fr; gap: 28px; }
   .sec-head { grid-template-columns: 1fr; gap: 28px; margin-bottom: 48px; }
   .school-grid { grid-template-columns: 1fr; gap: 48px; }
+  .school-body { grid-column: auto; max-width: none; }
   .priest { grid-template-columns: 1fr; gap: 32px; }
   .timeline::before { left: 0; }
   .tl-row { grid-template-columns: 1fr; gap: 8px; padding: 28px 0 28px 28px; }
