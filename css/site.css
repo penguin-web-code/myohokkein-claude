@@ -2781,6 +2781,12 @@ section.blk {
   border-top: 1px solid var(--line-soft);
   padding: 14px 0 10px;
   transition: color 0.2s;
+  /* 番号を左列に固定し、英名・和名を右列に置く。折り返しても番号の下に文字が回り込まない */
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 14px;
+  align-items: baseline;
+  align-content: start; /* 隣の項目が2行で li が引き伸ばされても、和名を英名の直下に留める */
 }
 
 /* 各列の最後の項目にだけ下罫線を引き、一覧の終わりを閉じる */
@@ -2794,7 +2800,7 @@ section.blk {
   font-size: 10px;
   letter-spacing: 0.2em;
   color: var(--mute);
-  margin-right: 14px;
+  grid-row: 1;
 }
 
 .toc li a {
@@ -2818,7 +2824,7 @@ section.blk {
   font-family: var(--font-jp);
   font-size: 11px;
   color: var(--mute);
-  margin-left: 34px;
+  grid-column: 2;
   margin-top: 2px;
   letter-spacing: 0.12em;
 }
